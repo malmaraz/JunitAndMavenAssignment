@@ -10,7 +10,7 @@ public class QuestionsAnswersTest
     @Test
     public void TestPut()
     {
-         QuestionsAnswers mock = new QuestionsAnswers();
+         QuestionAnswerService mock = new QuestionAnswerService();
          String question = "What color is the sky?";
          String answer = "blue";
 

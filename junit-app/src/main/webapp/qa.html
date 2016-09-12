@@ -1,0 +1,36 @@
+<!doctype html>
+
+<head>
+    <title>Assignment 2</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+
+<body>
+    <div>Question: <span id="question"></span>
+        <input id="answer" type="text"/>
+        <button onClick="getAnswer">Submit</button>
+    </div>
+    <div>
+        <span id="a"/> <span id="test"/>  <span id="q"/>
+    </div>
+
+    <script>
+function getQuestion() {
+    $.get("/rest/randomquestion", function(question) {
+        $("#question").text(question);
+    });
+};
+
+function getAnswer() {
+    var theanswer = $("#answer").val();
+    var thequestion = $("#question").val();
+    $.get("/rest/testanswer", {question : thequestion, answer : theanswer}function(resp) {
+            $("#q").text(thequestion);
+            $("#a").text(theanswer);
+            $("#text").text(" Is the correct answer to ");
+            $(getQuestion);
+    });
+};
+$(getQuestion);
+    </script>
+</body>
